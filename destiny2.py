@@ -17,9 +17,9 @@ help_txt = '''
 [蛛王] 查看蛛王商店
 [百科] 光尘商店/宝箱怪等链接
 '''
-@sv.on_fullmatch("原神帮助")
-async def help(bot, ev):
-    await bot.send(ev, help_txt)
+@sv.on_command('命运2帮助',only_to_me=False)
+async def help(bot):
+    await bot.send(help_txt)
 
 #功能设定
 @sv.on_command('周报',aliases=('命运2周报'),only_to_me=False)
