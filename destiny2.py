@@ -15,7 +15,8 @@ help_txt = '''
 [老九] 查看老九位置和装备
 [试炼] 查看试炼周报
 [蛛王] 查看蛛王商店
-[百科] 光尘商店/宝箱怪等链接
+[光尘] 查看光尘商店
+[百科] 小黑盒百科链接
 '''
 @sv.on_command('命运2帮助',only_to_me=False)
 async def help(bot):
@@ -54,8 +55,15 @@ async def zhu(session: CommandSession):
     msg = msg + img4
     await session.send(msg)
 
+@sv.on_command('光尘',aliases=('光尘商店'),only_to_me=False)
+async def buy(session: CommandSession):
+    img5 = MessageSegment.image("https://cdn.jsdelivr.net/gh/azmiao/picture-bed/img/buy.jpg")
+    msg = '命运2 光尘商店：\n'
+    msg = msg + img5
+    await session.send(msg)
+
 #百科后续打算做成其他形式，但过两天不一定想做了
 @sv.on_command('百科',aliases=('命运2百科'),only_to_me=False)
 async def baike(session: CommandSession):
-    msg = '&#91;CQ:rich,"jumpUrl":"https://api.xiaoheihe.cn/wiki/get_homepage_info_for_app/?wiki_id=1085660&amp;is_share=1",data={"app":"com.tencent.structmsg"&#93;命运2百科","ver":"0.0.0.1","view":"news"}&#93;&#91;分享&#93;命运2百科\n上小黑盒查看更多《命运2》精彩内 容\nhttps://api.xiaoheihe.cn/wiki/get_homepage_info_for_app/?wiki_id=1085660&amp;is_share=1\n来自: 小黑盒'
+    msg = '命运2 百科链接\n https://api.xiaoheihe.cn/wiki/get_homepage_info_for_app/?wiki_id=1085660&amp;is_share=1 \n来自: 小黑盒'
     await session.send(msg)
