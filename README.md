@@ -7,3 +7,6 @@ https://github.com/azmiao/destiny2_hoshino_plugin/
 
 # 食用教程请访问：
 https://www.azmiao.xyz/2020/11/19/destiny2_hoshino_plugin/
+
+# 现有问题
+每天凌晨建议设置个定时任务重启一下Hoshino,不然每日商店的图片缓存不会刷新
