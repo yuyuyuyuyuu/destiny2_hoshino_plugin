@@ -8,7 +8,7 @@ from .get_zhu_info import *
 
 
 #帮助界面
-sv = Service("命运2帮助")
+sv = Service("destiny2")
 
 help_txt = '''
 [周报] 查看命运2周报
@@ -23,6 +23,7 @@ async def help(bot):
     await bot.send(help_txt)
 
 #功能设定
+#周报功能
 @sv.on_command('周报',aliases=('命运2周报'),only_to_me=False)
 async def zhoubao(session: CommandSession):
     img1 = MessageSegment.image(getzhoubaoImg(html1))
@@ -31,6 +32,7 @@ async def zhoubao(session: CommandSession):
     msg = msg + img1
     await session.send(msg)
 
+#老九功能
 @sv.on_command('老九',aliases=('仄','九','xur'),only_to_me=False)
 async def xur(session: CommandSession):
     img2 = MessageSegment.image(getxurImg(html2))
@@ -39,6 +41,7 @@ async def xur(session: CommandSession):
     msg = msg + img2
     await session.send(msg)
 
+#试炼周报功能
 @sv.on_command('试炼',aliases=('奥斯里斯试炼'),only_to_me=False)
 async def chall(session: CommandSession):
     img3 = MessageSegment.image(getchallImg(html3))
@@ -47,6 +50,7 @@ async def chall(session: CommandSession):
     msg = msg + img3
     await session.send(msg)
 
+#蛛王商店功能（由于小黑盒现在大佬比较忙，后续我有想法可能会自己去更新）
 @sv.on_command('蛛王',aliases=('蛛王商店','猪王'),only_to_me=False)
 async def zhu(session: CommandSession):
     img4 = MessageSegment.image(getzhuImg(html4))
@@ -55,6 +59,7 @@ async def zhu(session: CommandSession):
     msg = msg + img4
     await session.send(msg)
 
+#光尘商店（为了图方便，这里直接放了一张整个赛季的商店图片）
 @sv.on_command('光尘',aliases=('光尘商店'),only_to_me=False)
 async def buy(session: CommandSession):
     img5 = MessageSegment.image("https://cdn.jsdelivr.net/gh/azmiao/picture-bed/img/buy.jpg")
@@ -62,7 +67,7 @@ async def buy(session: CommandSession):
     msg = msg + img5
     await session.send(msg)
 
-#百科后续打算做成其他形式，但过两天不一定想做了
+#百科后续打算做成其他形式，但目前直接放了个链接，自己去小黑盒看吧
 @sv.on_command('百科',aliases=('命运2百科'),only_to_me=False)
 async def baike(session: CommandSession):
     msg = '命运2 百科链接\n https://api.xiaoheihe.cn/wiki/get_homepage_info_for_app/?wiki_id=1085660&amp;is_share=1 \n来自: 小黑盒'
