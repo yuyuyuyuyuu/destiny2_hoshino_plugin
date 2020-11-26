@@ -22,7 +22,6 @@ help_txt = '''
 async def help(bot):
     await bot.send(help_txt)
 
-#功能设定
 #周报功能
 @sv.on_command('周报',aliases=('命运2周报'),only_to_me=False)
 async def zhoubao(session: CommandSession):
@@ -46,16 +45,16 @@ async def xur(session: CommandSession):
 async def chall(session: CommandSession):
     img3 = MessageSegment.image(getchallImg(html3))
     #print(getchallImg(html))
-    msg = '命运2 试炼周报：\n'
+    msg = '命运2 试炼周报：\n图片作者：seanalpha\n'
     msg = msg + img3
     await session.send(msg)
 
-#蛛王商店功能（由于小黑盒现在大佬比较忙，后续我有想法可能会自己去更新）
+#蛛王商店功能
 @sv.on_command('蛛王',aliases=('蛛王商店','猪王'),only_to_me=False)
 async def zhu(session: CommandSession):
     img4 = MessageSegment.image(getzhuImg(html4))
     #print(getzhuImg(html))
-    msg = '命运2 蛛王：\n'
+    msg = '命运2 蛛王：\n图片来源：小黑盒百科\n'
     msg = msg + img4
     await session.send(msg)
 
@@ -70,5 +69,5 @@ async def buy(session: CommandSession):
 #百科后续打算做成其他形式，但目前直接放了个链接，自己去小黑盒看吧
 @sv.on_command('百科',aliases=('命运2百科'),only_to_me=False)
 async def baike(session: CommandSession):
-    msg = '命运2 百科链接\n https://api.xiaoheihe.cn/wiki/get_homepage_info_for_app/?wiki_id=1085660&amp;is_share=1 \n来自: 小黑盒'
+    msg = '命运2 百科链接\n https://api.xiaoheihe.cn/wiki/get_homepage_info_for_app/?wiki_id=1085660&is_share=1 \n来自: 小黑盒'
     await session.send(msg)
