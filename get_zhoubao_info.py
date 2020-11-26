@@ -9,5 +9,5 @@ def getzhoubaoImg(html1):
   imglist = re.findall(r'(https\:\/\/cdn\.max\-c\.com\/heybox\/dailynews\/img\/(?!c4f5035d1b8053c400c72c0656c12d97).+?\.jpg)', html1)
   for url1 in imglist:
     return url1
-html1 = str(getzhoubaoHtml("https://api.xiaoheihe.cn/wiki/get_article_for_app/?article_id=9432964&wiki_id=1085660&is_share=1"))
+html1 = str(getzhoubaoHtml("https://api.xiaoheihe.cn/wiki/get_article_for_app/?article_id=9441772&wiki_id=1085660&is_share=1"))
 #print(getzhoubaoImg(html1))
