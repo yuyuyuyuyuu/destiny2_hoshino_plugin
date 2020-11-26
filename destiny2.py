@@ -28,7 +28,7 @@ async def help(bot):
 async def zhoubao(session: CommandSession):
     img1 = MessageSegment.image(getzhoubaoImg(html1))
     #print(getzhoubaoImg(html))
-    msg = '命运2 周报：\n'
+    msg = '命运2 周报：\n图片作者：seanalpha\n'
     msg = msg + img1
     await session.send(msg)
 
@@ -37,7 +37,7 @@ async def zhoubao(session: CommandSession):
 async def xur(session: CommandSession):
     img2 = MessageSegment.image(getxurImg(html2))
     #print(getxurImg(html))
-    msg = '命运2 仄：\n'
+    msg = '命运2 仄：\n图片作者：seanalpha\n'
     msg = msg + img2
     await session.send(msg)
 
