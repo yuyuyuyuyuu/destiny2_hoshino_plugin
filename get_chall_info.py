@@ -1,13 +1,41 @@
 import re
-import urllib.request
+import requests
 
+# 返回小黑盒百科的源码
 def getchallHtml(url):
-  html3 = urllib.request.urlopen(url).read()
+  html333 = requests.get(url)
+  html333.encoding = 'utf-8'
+  html333 = html333.text
+  html333 = html333.replace('\n','')
+  html333 = html333.replace(' ','')
+  # print(html333)
+  return html333
+
+# 返回试炼周报的链接
+def getchall(html333):
+  imglist = re.findall(r'tag\_name\"\:\"\\u5468\\u62a5.+?id\=1085660', html333)
+  for html30 in imglist:
+    imglist = re.findall(r'https\:\\\/\\\/api\.xiaoheihe\.cn\\\/wiki\\\/get\_article\_for\_app.+?id\=1085660', html30)
+    for html33 in imglist:
+      html33 = html33.replace('\\','')
+      # print(html33)
+      return html33
+
+# 返回试炼周报的源码
+def getchallHtml3(html33):
+  html3 = requests.get(html33)
+  html3.encoding = 'utf-8'
+  html3 = html3.text
+  # print(html3)
   return html3
+
+# 字符串格式输出图片链接
 def getchallImg(html3):
-  #正则表达式目前能用，不能用了再优化
-  imglist = re.findall(r'(https\:\/\/cdn\.max\-c\.com\/heybox\/dailynews\/img\/(?!c4f5035d1b8053c400c72c0656c12d97).+?\.jpg)', html3)
+  imglist = re.findall(r'https\:\/\/cdn\.max\-c\.com\/heybox\/dailynews\/img\/(?!c4f5035d1b8053c400c72c0656c12d97).+?\.png|https\:\/\/cdn\.max\-c\.com\/heybox\/dailynews\/img\/(?!c4f5035d1b8053c400c72c0656c12d97).+?\.jpg', html3)
   for url3 in imglist:
     return url3
-html3 = str(getchallHtml("https://api.xiaoheihe.cn/wiki/get_article_for_app/?article_id=9428079&wiki_id=1085660&is_share=1"))
-#print(getchallImg(html3))
+
+html333 = str(getchallHtml("https://api.xiaoheihe.cn/wiki/get_homepage_content/?wiki_id=1085660&verison=&is_share=1"))
+html33 = str(getchall(html333))
+html3 = str(getchallHtml3(html33))
+# print(getchallImg(html3))
