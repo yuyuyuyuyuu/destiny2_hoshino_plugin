@@ -28,16 +28,16 @@ async def zhoubao(session: CommandSession):
     img1 = MessageSegment.image(getzhoubaoImg(html1))
     #print(getzhoubaoImg(html))
     msg = '命运2 周报：\n图片作者：seanalpha\n'
-    msg = msg + img1
+    msg = msg + str(img1)
     await session.send(msg)
 
 #老九功能
-@sv.on_command('老九',aliases=('仄','九','xur'),only_to_me=False)
+@sv.on_command('老九',aliases=('仄','九','xur','老仄','苏尔'),only_to_me=False)
 async def xur(session: CommandSession):
     img2 = MessageSegment.image(getxurImg(html2))
     #print(getxurImg(html))
     msg = '命运2 仄：\n图片作者：seanalpha\n'
-    msg = msg + img2
+    msg = msg + str(img2)
     await session.send(msg)
 
 #试炼周报功能
@@ -46,7 +46,7 @@ async def chall(session: CommandSession):
     img3 = MessageSegment.image(getchallImg(html3))
     #print(getchallImg(html))
     msg = '命运2 试炼周报：\n图片作者：seanalpha\n'
-    msg = msg + img3
+    msg = msg + str(img3)
     await session.send(msg)
 
 #蛛王商店功能
@@ -55,7 +55,7 @@ async def zhu(session: CommandSession):
     img4 = MessageSegment.image(getzhuImg(html4))
     #print(getzhuImg(html))
     msg = '命运2 蛛王：\n图片来源：小黑盒百科\n'
-    msg = msg + img4
+    msg = msg + str(img4)
     await session.send(msg)
 
 #光尘商店（为了图方便，这里直接放了一张整个赛季的商店图片）
@@ -63,7 +63,7 @@ async def zhu(session: CommandSession):
 async def buy(session: CommandSession):
     img5 = MessageSegment.image("https://cdn.jsdelivr.net/gh/azmiao/picture-bed/img/buy.jpg")
     msg = '命运2 光尘商店：\n'
-    msg = msg + img5
+    msg = msg + str(img5)
     await session.send(msg)
 
 #百科后续打算做成其他形式，但目前直接放了个链接，自己去小黑盒看吧
