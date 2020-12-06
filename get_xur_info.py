@@ -2,7 +2,7 @@ import re
 import requests
 from .get_cookies import *
 
-# 返回仄专栏的源码
+# 返回小黑盒的源码
 def getxurHtml(url):
   cookie = {"Cookie": str(get_cookie())}
   html222 = requests.get(url, cookies = cookie)
